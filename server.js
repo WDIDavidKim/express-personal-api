@@ -20,10 +20,17 @@ app.use(function(req, res, next) {
  ************/
 var profile = [
   {
-    name: "David Kim",
-    location : "Alameda",
+    name: 'David Kim',
+    location : 'Alameda',
+    age: '21 ish',
+    github_link: "https://github.com/WDIDavidKim",
+    github_profile_image: "https://avatars3.githubusercontent.com/u/20020736?v=3&s=460"
   }
 ];
+
+app.get('/api/profile', function (req, res) {
+  res.json(profile);
+});
 // var db = require('./models');
 
 /**********
