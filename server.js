@@ -18,7 +18,12 @@ app.use(function(req, res, next) {
 /************
  * DATABASE *
  ************/
-
+var profile = [
+  {
+    name: "David Kim",
+    location : "Alameda",
+  }
+];
 // var db = require('./models');
 
 /**********
@@ -52,7 +57,7 @@ app.get('/api', function api_index(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "David Kim"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "POST", path: "/api/movies", description: "E.g. Create a new campsite"} // CHANGE ME
     ]
   });
 });
