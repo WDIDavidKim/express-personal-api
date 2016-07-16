@@ -24,7 +24,13 @@ var profile = [
     location : 'Alameda',
     age: '21 ish',
     github_link: "https://github.com/WDIDavidKim",
-    github_profile_image: "https://avatars3.githubusercontent.com/u/20020736?v=3&s=460"
+    github_profile_image: "https://avatars3.githubusercontent.com/u/20020736?v=3&s=460",
+    about_me: [
+      {
+        hobbies: "fishing, camping, sleeping, and eating.",
+        pets: "A yellow lab and a Austrailian Cattle dog mix."
+      }
+    ]
   }
 ];
 
