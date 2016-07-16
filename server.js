@@ -56,6 +56,7 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+//get all movies
 app.get('/api/movies', function (req, res) {
   db.Movies.find()
     .populate('movies')
@@ -64,7 +65,14 @@ app.get('/api/movies', function (req, res) {
     res.json(movies);
   });
 });
-/*
+
+app.get('/api/movies/:id', function (req, res) {
+  db.Movies.findById(req.params.id, function(err, id){
+      if (err) { return console.log("show error: " + err); }
+      res.json(id);
+    });
+  });
+  /*
  * JSON API Endpoints
  */
 
