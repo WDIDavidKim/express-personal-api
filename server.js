@@ -94,7 +94,7 @@ app.get('/api', function api_index(req, res) {
     documentation_url: "https://github.com/WDIDavidKim/express-personal-api", // CHANGE ME
     base_url: "https://peaceful-tundra-47993.herokuapp.com/", // CHANGE ME
     endpoints: [
-      {method: "GET", path: "/api/movies", description: "List of favorite movies."},
+      {method: "GET", path: "https://peaceful-tundra-47993.herokuapp.com/api/movies", description: "List of favorite movies."},
       {method: "GET", path: "https://peaceful-tundra-47993.herokuapp.com/api/profile", description: "About me : David Kim"}, // CHANGE ME
       {method: "POST", path: "/api/movies", description: "Create a new movie."} // CHANGE ME
     ]
