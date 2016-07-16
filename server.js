@@ -15,6 +15,8 @@ app.use(function(req, res, next) {
   next();
 });
 
+var db = require('./models');
+
 /************
  * DATABASE *
  ************/
@@ -37,7 +39,6 @@ var profile = [
 app.get('/api/profile', function (req, res) {
   res.json(profile);
 });
-// var db = require('./models');
 
 /**********
  * ROUTES *
@@ -55,7 +56,12 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
+app.get('/api/movies', function (req, res) {
+  db.Movies.find(function(err, movies){
+    if (err) { return console.log("index error: " + err); }
+    res.json(movies);
+  });
+});
 /*
  * JSON API Endpoints
  */
