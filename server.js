@@ -28,7 +28,7 @@ var profile = [
     about_me: [
       {
         hobbies: "fishing, camping, sleeping, and eating.",
-        pets: "A yellow lab and a Austrailian Cattle dog mix."
+        pets: "A yellow Labrabor and a Austrailian Cattle dog mix."
       }
     ]
   }
