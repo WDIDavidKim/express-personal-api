@@ -16,3 +16,15 @@ h4 {
 #newMovieForm {
   padding-top: 4em;
 }
+.btn{
+  margin-top: 5em;
+  margin-left: 18.5em;
+}
+label, input {
+    display: block;
+    margin-left: 6em;
+}
+
+label {
+    margin-bottom: 20px;
+}
