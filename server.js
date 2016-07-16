@@ -73,15 +73,27 @@ app.get('/api/movies/:id', function (req, res) {
     });
   });
 
-// app.post('/api/movies', function (req, res) {
-//   var newMovie = new db.Movies({
-//     title: req.body.title,
-//     releaseDate: req.body.releaseDate,
-//     description: req.body.description,
-//     director: req.body.director,
-//     image: req.body.image,
-//   });
-// });
+app.post('/api/movies', function (req, res) {
+  var newMovie = new db.Movies({
+    title: req.body.title,
+    description: req.body.description,
+    director: req.body.director,
+    image: req.body.image,
+  });
+  newMovie.save(function newMovieSaved(err, saveMovie){
+    res.json(saveMovie);
+  });
+});
+
+app.delete('/api/movies/:id', function (req, res) {
+  console.log(req.params);
+  var movieId = req.params.id;
+
+  db.Movie.findOneAndRemove({ _id: movieId }, function (err, deletedMovie) {
+    res.json(deletedMovie);
+  });
+});
+
   /*
  * JSON API Endpoints
  */
