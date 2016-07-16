@@ -57,7 +57,9 @@ app.get('/', function homepage(req, res) {
 });
 
 app.get('/api/movies', function (req, res) {
-  db.Movies.find(function(err, movies){
+  db.Movies.find()
+    .populate('movies')
+    .exec(function(err, movies){
     if (err) { return console.log("index error: " + err); }
     res.json(movies);
   });
