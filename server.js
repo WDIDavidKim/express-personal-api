@@ -75,8 +75,8 @@ app.get('/api', function api_index(req, res) {
     base_url: "https://peaceful-tundra-47993.herokuapp.com/", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "David Kim"}, // CHANGE ME
-      {method: "POST", path: "/api/movies", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "https://peaceful-tundra-47993.herokuapp.com/api/profile", description: "About me : David Kim"}, // CHANGE ME
+      {method: "POST", path: "/api/movies", description: "Create a new movie"} // CHANGE ME
     ]
   });
 });
