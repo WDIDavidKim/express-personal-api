@@ -8,36 +8,34 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/styles.css">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
   <script src="/scripts/app.js"></script>
 </head>
+
 <body>
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <h1>My Favorite Movies</h1>
+        <h1>The Greatest Movies of All Time</h1>
         <h4><a href="/api">Read My API Documentation</a></h4>
         <form class="form-inline" action="/api/movies" method="post" id="newMovieForm">
           <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" name="title" placeholder="Movie Title">
+            <label for="movie">Movie</label>
+            <input type="text" class="form-control" name="movie" placeholder="Movie Title">
           </div>
           <div class="form-group">
-            <label for="title">Director</label>
-            <input type="text" class="form-control" name="director" placeholder="Director">
+            <label for="director">Director</label>
+            <input type="text" class="form-control" name="director" placeholder="Director's name">
           </div>
-          <button type="submit" class="btn btn-default">Create movie</button>
+          <button type="submit" class="btn btn-default">Submit a movie</button>
         </form>
-        <div id='movieTarget'>
 
-          <script id="movies-template" type="text/x-handlebars-template">
+        <script id="movies-template" type="text/x-handlebars-template">
+          <div id='movieTarget'>
             {{#each movies}}
             <hr>
-            <p>
-              <b>{{title}}</b>
-              by {{director}}
+            <p>{{movie}}
               <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
             </p>
             {{/each}}

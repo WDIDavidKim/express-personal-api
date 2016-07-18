@@ -1,5 +1,4 @@
 console.log("Sanity Check: JS is working!");
-
 var template;
 var $moviesList;
 var allMovies = [];
@@ -42,14 +41,10 @@ $(document).ready(function(){
 
 
 
-  // helper function to render all posts to view
-  // note: we empty and re-render the collection each time our post data changes
   function render () {
-    // empty existing posts from view
     $moviesList.empty();
 
-    // pass `allBooks` into the template function
-    var moviesHtml = template({ movies: allmovies });
+    var moviesHtml = template({ movies : allMovies });
 
     // append html to the view
     $moviesList.append(moviesHtml);
@@ -79,7 +74,6 @@ $(document).ready(function(){
     var movie = json;
     var movieId = movie._id;
 
-    // find the book with the correct ID and remove it from our allBooks array
     for(var index = 0; index < allMovies.length; index++) {
       if(allMovies[index]._id === movieId) {
         allMovies.splice(index, 1);
@@ -92,5 +86,3 @@ $(document).ready(function(){
   function deleteMovieError() {
 
   }
-  });
-// your code
