@@ -1,6 +1,13 @@
+body{
+  background-image: url("http://wallpapercave.com/wp/Ktx8OxK.jpg");
+  background-size: cover;
+}
 h1{
   text-align: center;
+  color: white;
+  font-weight: bold;
 }
 h4{
   text-align: center;
+  color: black;
 }

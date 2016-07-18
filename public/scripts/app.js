@@ -47,7 +47,7 @@ $(document).ready(function(){
     var moviesHtml = template({ movies : allMovies });
 
     // append html to the view
-    $moviesList.append(moviesHtml);
+    $moviesList.prepend(moviesHtml);
   }
 
   function handleSuccess(json) {

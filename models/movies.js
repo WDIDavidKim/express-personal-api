@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
 var MoviesSchema = new Schema({
   title: String,
   director: String,
+  image: String,
 });
 
 var Movies = mongoose.model('Movies', MoviesSchema);

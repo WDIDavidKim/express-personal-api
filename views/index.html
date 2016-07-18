@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="/styles/styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
-  <script src="/scripts/app.js"></script>
 </head>
 
 <body>
@@ -35,7 +34,9 @@
           <div id='movieTarget'>
             {{#each movies}}
             <hr>
-            <p>{{movie}}
+            <p>
+              <b>{{movie}}</b>
+              by {{director}}
               <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
             </p>
             {{/each}}
@@ -43,5 +44,6 @@
         </div>
       </div>
     </div>
+    <script src="/scripts/app.js"></script>
   </body>
   </html>
