@@ -66,6 +66,7 @@ app.get('/api/movies', function (req, res) {
   });
 });
 
+//get movie by id
 app.get('/api/movies/:id', function (req, res) {
   db.Movies.findById(req.params.id, function(err, id){
       if (err) { return console.log("show error: " + err); }
@@ -73,18 +74,20 @@ app.get('/api/movies/:id', function (req, res) {
     });
   });
 
+//create a new movie
 app.post('/api/movies', function (req, res) {
   var newMovie = new db.Movies({
     title: req.body.title,
-    description: req.body.description,
+    // description: req.body.description,
     director: req.body.director,
-    image: req.body.image,
+    // image: req.body.image,
   });
   newMovie.save(function newMovieSaved(err, saveMovie){
     res.json(saveMovie);
   });
 });
 
+//delete a movie
 app.delete('/api/movies/:id', function (req, res) {
   console.log(req.params);
   var movieId = req.params.id;
@@ -106,9 +109,13 @@ app.get('/api', function api_index(req, res) {
     documentation_url: "https://github.com/WDIDavidKim/express-personal-api", // CHANGE ME
     base_url: "https://peaceful-tundra-47993.herokuapp.com/", // CHANGE ME
     endpoints: [
-      {method: "GET", path: "https://peaceful-tundra-47993.herokuapp.com/api/movies", description: "List of favorite movies."},
-      {method: "GET", path: "https://peaceful-tundra-47993.herokuapp.com/api/profile", description: "About me : David Kim"}, // CHANGE ME
-      {method: "POST", path: "/api/movies", description: "Create a new movie."} // CHANGE ME
+      {method: "GET", path: "/api", description: "Directory of endpoints."},
+      {method: "GET", path: "/api/profile", description: "About me : David Kim"}, // CHANGE ME
+      {method: "GET", path: "/api/movies", description: "Gets all movies."},
+      {method: "POST", path: "/api/movies", description: "Creates a new movie."},
+      {method: "DELETE", path: "/api/movies/:id", description: "Delete a new movie."}
+
+      // CHANGE ME
     ]
   });
 });

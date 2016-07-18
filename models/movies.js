@@ -3,9 +3,7 @@ var mongoose = require('mongoose'),
 
 var MoviesSchema = new Schema({
   title: String,
-  description: String,
   director: String,
-  image: String,
 });
 
 var Movies = mongoose.model('Movies', MoviesSchema);
