@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/styles/styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="/scripts/app.js"></script>
 </head>
 
 <body>
@@ -22,20 +23,18 @@
           <div class="form-group">
             <label for="movie">Movie</label>
             <input type="text" class="form-control" name="movie" placeholder="Movie Title">
-          </div>
           <div class="form-group">
             <label for="director">Director</label>
             <input type="text" class="form-control" name="director" placeholder="Director's name">
           <button type="submit" class="btn btn-default">Submit a movie</button>
         </form>
 
+        <div id='movieTarget'>
         <script id="movies-template" type="text/x-handlebars-template">
-          <div id='movieTarget'>
             {{#each movies}}
             <hr>
             <p>
-              <b>{{movie}}</b>
-              by {{director}}
+              {{movie}} by {{director}}
               <button type="button" name="button" class="deleteBtn btn btn-danger pull-right" data-id={{_id}}>Delete</button>
             </p>
             {{/each}}
@@ -43,6 +42,5 @@
         </div>
       </div>
     </div>
-    <script src="/scripts/app.js"></script>
   </body>
   </html>

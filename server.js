@@ -77,14 +77,14 @@ app.get('/api/movies/:id', function (req, res) {
 //create a new movie
 app.post('/api/movies', function (req, res) {
   var newMovie = new db.Movies({
-    title: req.body.movie,
+    movie: req.body.movie,
     // description: req.body.description,
     director: req.body.director,
     // image: req.body.image,
   });
   newMovie.save(function newMovieSaved(err, saveMovie){
-    // res.json(saveMovie);
-    res.redirect('/');
+    res.json(saveMovie);
+    // res.redirect('/');
   });
 });
 

@@ -22,10 +22,12 @@ db.Movies.remove({}, function(err, movies) {
     console.log('Error occured in remove', err);
   } else {
     console.log('remove all movies');
-  db.Movies.create(movies_list, function(err, movies){
-      if (err){ return console.log("Error: ", err); }
-      console.log("Created a new movie", movies);
-      process.exit();
-    });
+
+db.Movies.create(movies_list, function(err, movies){
+    if (err){ return console.log("Error: ", err);
+    }
+    console.log("Created a new movie", movies);
+    process.exit();
+  });
   }
 });

@@ -5,7 +5,6 @@ var allMovies = [];
 
 $(document).ready(function(){
 
-
     $moviesList = $('#movieTarget');
 
     // compile handlebars template
