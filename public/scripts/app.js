@@ -1,10 +1,10 @@
 console.log("Sanity Check: JS is working!");
 
-$(document).ready(function(){
+var template;
+var $moviesList;
+var allMovies = [];
 
-  var template;
-  var $moviesList;
-  var allMovies = [];
+$(document).ready(function(){
 
 
     $moviesList = $('#movieTarget');

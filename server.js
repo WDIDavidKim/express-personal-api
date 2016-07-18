@@ -83,7 +83,8 @@ app.post('/api/movies', function (req, res) {
     // image: req.body.image,
   });
   newMovie.save(function newMovieSaved(err, saveMovie){
-    res.json(saveMovie);
+    // res.json(saveMovie);
+    res.redirect('/');
   });
 });
 
