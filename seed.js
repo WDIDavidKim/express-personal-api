@@ -17,13 +17,13 @@ var movies_list = [
   image: "http://ia.media-imdb.com/images/M/MV5BMTY2OTE5MzQ3MV5BMl5BanBnXkFtZTgwMTY2NTYxMTE@._V1_UX182_CR0,0,182,268_AL_.jpg",
   },
 ];
-db.Movies.remove({}, function(err, movies) {
+db.Movie.remove({}, function(err, movies) {
   if(err) {
     console.log('Error occured in remove', err);
   } else {
     console.log('remove all movies');
 
-db.Movies.create(movies_list, function(err, movies){
+db.Movie.create(movies_list, function(err, movies){
     if (err){ return console.log("Error: ", err);
     }
     console.log("Created a new movie", movies);

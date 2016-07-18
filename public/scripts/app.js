@@ -1,87 +1,85 @@
-console.log("Sanity Check: JS is working!");
+console.log("Sanity Check: JS is working! app.js is connected.");
 var template;
 var $moviesList;
 var allMovies = [];
 
 $(document).ready(function(){
 
-    $moviesList = $('#movieTarget');
+  $moviesList = $('#movieTarget');
 
-    // compile handlebars template
-    var source = $('#movies-template').html();
-    template = Handlebars.compile(source);
+  var source = $('#movies-template').html();
+  template = Handlebars.compile(source);
 
-    $.ajax({
-      method: 'GET',
-      url: '/api/movies',
-      success: handleSuccess,
-      error: handleError
+  $.ajax ({
+    method: 'GET',
+    url: '/api/movies',
+    success: handleSuccess,
+    error: handleError
+  });
+
+  $('#newMovieForm').on('submit', function(e) {
+  e.preventDefault();
+  $.ajax({
+    method: 'POST',
+    url: '/api/movies',
+    data: $(this).serialize(),
+    success: newMovieSuccess,
+    error: newMovieError
     });
+  });
 
-    $('#newMovieForm').on('submit', function(e) {
-      e.preventDefault();
-      $.ajax({
-        method: 'POST',
-        url: '/api/movies',
-        data: $(this).serialize(),
-        success: newMovieSuccess,
-        error: newMovieError
-      });
-    });
-
-    $moviesList.on('click', '.deleteBtn', function() {
-      $.ajax({
-        method: 'DELETE',
-        url: '/api/movies/'+$(this).attr('data-id'),
-        success: deleteMovieSuccess,
-        error: deleteMovieError
-      });
-    });
-
-
-
-  function render () {
-    $moviesList.empty();
-
-    var moviesHtml = template({ movies : allMovies });
-
-    // append html to the view
-    $moviesList.prepend(moviesHtml);
-  }
-
-  function handleSuccess(json) {
-    allMovies = json;
-    render();
-  }
-
-  function handleError(e) {
-    console.log('uh oh');
-    $('#movieTarget').text('Failed to load movies, is the server working?');
-  }
-
-  function newMovieSuccess(json) {
-    $('#newMovieForm input').val('');
-    allMovies.push(json);
-    render();
-  }
-
-  function newMovieError() {
-
-  }
+$moviesList.on('click', '.deleteBtn', function() {
+  $.ajax({
+    method: 'DELETE',
+    url: '/api/movies/'+$(this).attr('data-id'),
+    success: deleteMovieSuccess,
+    error: deleteMovieError,
+  });
 });
-  function deleteMovieSuccess(json) {
-    var movie = json;
-    var movieId = movie._id;
 
-    for(var index = 0; index < allMovies.length; index++) {
-      if(allMovies[index]._id === movieId) {
-        allMovies.splice(index, 1);
-        break;  // we found our book - no reason to keep searching (this is why we didn't use forEach)
-      }
+function render() {
+  $moviesList.empty();
+  var moviesHtml = template({ movies: allMovies });
+  $moviesList.append(moviesHtml);
+  }
+
+function handleSuccess(json) {
+  allMovies = json;
+  render();
+}
+
+function handleError(e) {
+  console.log ("Error!");
+  $('#movieTarget').text("Failed to load movies. Something went wrong with the server.");
+}
+
+function newMovieSuccess(json) {
+  $('#newMovieForm input').val('');
+  allMovies.push(json);
+  render();
+}
+
+function newMovieError() {
+  console.log("The movie was not created successfully.");
+}
+
+function deleteMovieSuccess(json) {
+  var movie = json;
+  console.log(json);
+  var movieId = movie._id;
+  console.log('delete this movie:', movieId);
+  for(var i = 0; i < allMovies.length; i++) {
+    if(allMovies[i]._id === movieId) {
+      allMovies.splice(i, 1);
+      break;
     }
-    render();
   }
+  render();
+}
 
-  function deleteMovieError() {
+function deleteMovieError() {
+  console.log("Error, the movie wasn't deleted.");
+}
 
-  }
+
+});

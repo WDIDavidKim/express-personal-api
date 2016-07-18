@@ -1,4 +1,4 @@
 var mongoose = require("mongoose");
 mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/personal-api");
 
-module.exports.Movies = require("./movies.js");
+module.exports.Movie = require("./movie.js");

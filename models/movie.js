@@ -7,6 +7,6 @@ var MovieSchema = new Schema({
   image: String,
 });
 
-var Movie = mongoose.model('Movie', MoviesSchema);
+var Movie = mongoose.model('Movie', MovieSchema);
 
 module.exports = Movie;

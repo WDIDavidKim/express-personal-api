@@ -58,7 +58,7 @@ app.get('/', function homepage(req, res) {
 
 //get all movies
 app.get('/api/movies', function (req, res) {
-  db.Movies.find()
+  db.Movie.find()
     .populate('movies')
     .exec(function(err, movies){
     if (err) { return console.log("index error: " + err); }
@@ -68,7 +68,7 @@ app.get('/api/movies', function (req, res) {
 
 //get movie by id
 app.get('/api/movies/:id', function (req, res) {
-  db.Movies.findById(req.params.id, function(err, id){
+  db.Movie.findById(req.params.id, function(err, id){
       if (err) { return console.log("show error: " + err); }
       res.json(id);
     });
@@ -76,11 +76,11 @@ app.get('/api/movies/:id', function (req, res) {
 
 //create a new movie
 app.post('/api/movies', function (req, res) {
-  var newMovie = new db.Movies({
+  var newMovie = new db.Movie({
     movie: req.body.movie,
     // description: req.body.description,
     director: req.body.director,
-    // image: req.body.image,
+    image: req.body.image,
   });
   newMovie.save(function newMovieSaved(err, saveMovie){
     res.json(saveMovie);
